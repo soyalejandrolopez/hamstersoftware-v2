@@ -1,0 +1,417 @@
+.section {
+  position: relative;
+  min-height: 100vh;
+  background-color: #f8fafc;
+  color: #1e293b;
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+  padding: 120px 0 60px;
+  display: flex;
+  align-items: center;
+  background-image: 
+    radial-gradient(circle at 15% 50%, rgba(113, 75, 103, 0.05) 0%, transparent 25%),
+    radial-gradient(circle at 85% 30%, rgba(1, 126, 132, 0.05) 0%, transparent 25%);
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  grid-template-rows: auto 1fr;
+  gap: 24px;
+  min-height: calc(100vh - 180px);
+  align-items: center;
+}
+
+/* HERO SECTION */
+.hero {
+  grid-column: 1;
+  grid-row: 1;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.badge {
+  display: inline-block;
+  padding: 6px 14px;
+  background: rgba(113, 75, 103, 0.1);
+  color: #714B67;
+  border: 1px solid rgba(113, 75, 103, 0.2);
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  align-self: flex-start;
+  letter-spacing: 1px;
+}
+
+.title {
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 12px;
+  color: #0f172a;
+}
+
+.highlight {
+  color: #714B67;
+}
+
+.subtitle {
+  font-size: 0.95rem;
+  color: #475569;
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+
+.ctaGroup {
+  display: flex;
+  gap: 16px;
+}
+
+.primaryBtn {
+  background: #714B67;
+  color: #ffffff;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(113, 75, 103, 0.2);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.primaryBtn:hover {
+  transform: translateY(-2px);
+  background: #5d3d54;
+  box-shadow: 0 6px 15px rgba(113, 75, 103, 0.3);
+}
+
+/* FEATURES GRID */
+.features {
+  grid-column: 1;
+  grid-row: 2;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  align-content: start;
+}
+
+.featureCard {
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.05);
+  padding: 16px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.featureCard:hover {
+  transform: translateY(-2px);
+  border-color: rgba(113, 75, 103, 0.2);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.05);
+}
+
+.iconWrapper {
+  width: 44px;
+  height: 44px;
+  background: rgba(113, 75, 103, 0.05);
+  border: 1px solid rgba(113, 75, 103, 0.1);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #714B67;
+  flex-shrink: 0;
+}
+
+.iconWrapper svg {
+  width: 22px;
+  height: 22px;
+}
+
+.featureText {
+  flex: 1;
+}
+
+.featureTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #0f172a;
+  margin-bottom: 2px;
+}
+
+.featureDesc {
+  font-size: 0.8rem;
+  color: #64748b;
+  line-height: 1.4;
+}
+
+/* SHOWCASE BENTO INTERFACE */
+.showcaseWrapper {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 20px;
+  align-items: stretch;
+}
+
+/* KANBAN / PIPELINE MOCKUP */
+.kanbanPanel {
+  grid-column: 1 / span 2;
+  grid-row: 1;
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e2e8f0;
+}
+
+.kanbanHeader {
+  padding: 16px 20px;
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.kanbanTitle {
+  font-weight: 600;
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.kanbanTabs {
+  display: flex;
+  gap: 12px;
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+.kanbanTab {
+  padding: 4px 12px;
+  border-radius: 4px;
+}
+.kanbanTab.active {
+  background: rgba(113, 75, 103, 0.1);
+  color: #714B67;
+  font-weight: 600;
+}
+
+.kanbanBoard {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  padding: 20px;
+  background: #f1f5f9;
+  min-height: 250px;
+}
+
+.kanbanColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.colHeader {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #475569;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.colCount {
+  background: #e2e8f0;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+}
+
+.kanbanCard {
+  background: #ffffff;
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  border: 1px solid #e2e8f0;
+  border-left: 3px solid #714B67;
+}
+
+.kanbanCard.won {
+  border-left-color: #017E84;
+}
+
+.cardTitle {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #0f172a;
+  margin-bottom: 4px;
+}
+
+.cardClient {
+  font-size: 0.75rem;
+  color: #64748b;
+  margin-bottom: 8px;
+}
+
+.cardFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.cardAvatar {
+  width: 20px;
+  height: 20px;
+  background: #e2e8f0;
+  border-radius: 50%;
+}
+
+/* CUSTOMER PROFILE MOCKUP */
+.profilePanel {
+  grid-column: 1;
+  grid-row: 2;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  border: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+}
+
+.profileTop {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.profileImg {
+  width: 56px;
+  height: 56px;
+  border-radius: 8px;
+  background: #e2e8f0;
+  background-image: url('https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=150&q=80');
+  background-size: cover;
+}
+
+.profileName {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #0f172a;
+}
+
+.profileCompany {
+  font-size: 0.85rem;
+  color: #714B67;
+}
+
+.profileStats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  border-top: 1px solid #e2e8f0;
+  padding-top: 16px;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.statLabel {
+  font-size: 0.75rem;
+  color: #64748b;
+  margin-bottom: 2px;
+}
+
+.statValue {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #0f172a;
+}
+
+/* CHART / ANALYTICS MOCKUP */
+.analyticsPanel {
+  grid-column: 2;
+  grid-row: 2;
+  background: #714B67;
+  border-radius: 16px;
+  padding: 20px;
+  color: #ffffff;
+  box-shadow: 0 10px 30px rgba(113, 75, 103, 0.2);
+  display: flex;
+  flex-direction: column;
+}
+
+.analyticsTitle {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.analyticsChart {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  height: 100px;
+  margin-top: auto;
+}
+
+.bar {
+  flex: 1;
+  background: rgba(255,255,255,0.2);
+  border-radius: 4px 4px 0 0;
+  transition: height 0.5s ease;
+}
+.bar.active {
+  background: #017E84;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .section { height: auto; padding-top: 120px; }
+  .container { grid-template-columns: 1fr; grid-template-rows: auto; min-height: auto; }
+  .showcaseWrapper { grid-column: 1; grid-row: auto; margin-top: 24px; }
+}
+
+@media (max-width: 768px) {
+  .showcaseWrapper { grid-template-columns: 1fr; }
+  .kanbanPanel { grid-column: 1; }
+  .kanbanBoard { grid-template-columns: 1fr; }
+  .profilePanel { grid-column: 1; grid-row: auto; }
+  .analyticsPanel { grid-column: 1; grid-row: auto; }
+}

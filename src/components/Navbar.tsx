@@ -17,6 +17,7 @@ const navLinks = [
       { label: 'Radio Streaming', href: '/servicios/radio-streaming' },
       { label: 'Sistema Telemedicina', href: '/servicios/telemedicina' },
       { label: 'Reserva y Boletos', href: '/servicios/reserva-boletos' },
+      { label: 'Sistema Odoo CRM', href: '/servicios/odoo' },
     ]
   },
   { label: 'Industrias', href: '/#industrias' },
