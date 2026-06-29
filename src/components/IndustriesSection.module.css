@@ -1,0 +1,70 @@
+.industries {
+  background: var(--color-surface);
+  overflow: hidden;
+}
+
+.marqueeContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  max-width: 100vw;
+  overflow: hidden;
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+}
+
+.marqueeTrack {
+  display: flex;
+  width: max-content;
+}
+
+.marqueeContent {
+  display: flex;
+  gap: var(--space-md);
+  animation: marquee 45s linear infinite;
+  padding-right: var(--space-md);
+}
+
+.marqueeReverse .marqueeContent {
+  animation-direction: reverse;
+  animation-duration: 50s;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.125rem;
+  background: var(--color-surface);
+  border: 1.5px solid;
+  border-radius: var(--radius-full);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: default;
+  transition: all var(--transition-base);
+}
+
+.pill:hover {
+  transform: scale(1.05);
+  box-shadow: var(--shadow-sm);
+}
+
+.pillDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}

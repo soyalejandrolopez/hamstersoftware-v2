@@ -1,0 +1,233 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+  padding: calc(var(--nav-height) + 3rem) var(--space-xl) var(--space-4xl);
+  overflow: hidden;
+}
+
+/* Gradient Background */
+.gradientBg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #F0F6FC 0%, #E0EBF5 30%, #D6E8F5 60%, #FFFBE6 100%);
+  z-index: 0;
+}
+
+.gradientOrb1,
+.gradientOrb2,
+.gradientOrb3 {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  z-index: 1;
+  animation: float 10s ease-in-out infinite;
+}
+
+.gradientOrb1 {
+  width: 500px;
+  height: 500px;
+  background: rgba(2, 79, 144, 0.18);
+  top: -10%;
+  left: -5%;
+}
+
+.gradientOrb2 {
+  width: 400px;
+  height: 400px;
+  background: rgba(254, 213, 20, 0.14);
+  top: 40%;
+  right: -8%;
+  animation-delay: -3s;
+}
+
+.gradientOrb3 {
+  width: 350px;
+  height: 350px;
+  background: rgba(254, 213, 20, 0.1);
+  bottom: -5%;
+  left: 30%;
+  animation-delay: -6s;
+}
+
+/* Floating shapes */
+.floatingShape1,
+.floatingShape2,
+.floatingShape3 {
+  position: absolute;
+  z-index: 1;
+  opacity: 0.35;
+}
+
+.floatingShape1 {
+  width: 60px;
+  height: 60px;
+  background: var(--color-primary-light);
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  top: 20%;
+  left: 8%;
+  animation: float 8s ease-in-out infinite;
+}
+
+.floatingShape2 {
+  width: 40px;
+  height: 40px;
+  background: var(--color-cta);
+  border-radius: 50%;
+  top: 65%;
+  left: 15%;
+  animation: float-delayed 7s ease-in-out infinite;
+}
+
+.floatingShape3 {
+  width: 50px;
+  height: 50px;
+  background: var(--color-accent-warm-light);
+  border-radius: 20% 80% 60% 40% / 50% 30% 70% 50%;
+  top: 30%;
+  right: 5%;
+  animation: float 9s ease-in-out infinite;
+  animation-delay: -2s;
+}
+
+/* Content */
+.content {
+  position: relative;
+  z-index: 2;
+  max-width: 620px;
+  flex: 1;
+}
+
+.title {
+  font-family: var(--font-heading), 'Fredoka', sans-serif;
+  margin-bottom: var(--space-lg);
+}
+
+.subtitle {
+  font-size: 1.125rem;
+  margin-bottom: var(--space-2xl);
+  max-width: 540px;
+}
+
+.ctas {
+  display: flex;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-2xl);
+}
+
+/* Trust badges */
+.trustBadges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-lg);
+}
+
+.trustItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+}
+
+/* Hamster illustration */
+.heroIllustration {
+  position: relative;
+  z-index: 2;
+  flex: 0 0 320px;
+  max-width: 320px;
+}
+
+.hamsterSvg {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 8px 32px rgba(2, 79, 144, 0.18));
+}
+
+.wheel {
+  animation: spin-slow 20s linear infinite;
+  transform-origin: center;
+}
+
+.wheelInner {
+  animation: spin-slow 15s linear infinite reverse;
+  transform-origin: center;
+}
+
+.dataNode1 {
+  animation: pulse-soft 3s ease-in-out infinite;
+}
+
+.dataNode2 {
+  animation: pulse-soft 3s ease-in-out infinite;
+  animation-delay: -0.8s;
+}
+
+.dataNode3 {
+  animation: pulse-soft 3s ease-in-out infinite;
+  animation-delay: -1.6s;
+}
+
+.dataNode4 {
+  animation: pulse-soft 3s ease-in-out infinite;
+  animation-delay: -2.4s;
+}
+
+@media (max-width: 1024px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .content {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .subtitle {
+    max-width: 520px;
+  }
+
+  .ctas {
+    justify-content: center;
+  }
+
+  .trustBadges {
+    justify-content: center;
+  }
+
+  .heroIllustration {
+    flex: 0 0 240px;
+    max-width: 240px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding-top: calc(var(--nav-height) + 2rem);
+  }
+
+  .ctas {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .ctas a {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .heroIllustration {
+    flex: 0 0 200px;
+    max-width: 200px;
+  }
+}

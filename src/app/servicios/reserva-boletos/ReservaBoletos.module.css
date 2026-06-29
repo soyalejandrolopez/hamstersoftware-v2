@@ -1,0 +1,414 @@
+.section {
+  position: relative;
+  min-height: 100vh;
+  background-color: #f8fafc;
+  color: #1e293b;
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+  padding: 120px 0 60px;
+  display: flex;
+  align-items: center;
+  background-image: 
+    radial-gradient(circle at 15% 50%, rgba(139, 92, 246, 0.08) 0%, transparent 25%),
+    radial-gradient(circle at 85% 30%, rgba(236, 72, 153, 0.08) 0%, transparent 25%);
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  grid-template-rows: auto 1fr;
+  gap: 24px;
+  min-height: calc(100vh - 180px);
+  align-items: center;
+}
+
+/* HERO SECTION */
+.hero {
+  grid-column: 1;
+  grid-row: 1;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.badge {
+  display: inline-block;
+  padding: 6px 14px;
+  background: rgba(139, 92, 246, 0.1);
+  color: #7c3aed;
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  align-self: flex-start;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.title {
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 12px;
+  color: #0f172a;
+}
+
+.highlight {
+  background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 20px rgba(236, 72, 153, 0.3);
+}
+
+.subtitle {
+  font-size: 0.95rem;
+  color: #475569;
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+
+.ctaGroup {
+  display: flex;
+  gap: 16px;
+}
+
+.primaryBtn {
+  background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+  color: #ffffff;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(236, 72, 153, 0.3);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.primaryBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(236, 72, 153, 0.5);
+}
+
+/* FEATURES GRID */
+.features {
+  grid-column: 1;
+  grid-row: 2;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  align-content: start;
+}
+
+.featureCard {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0,0,0,0.05);
+  backdrop-filter: blur(10px);
+  padding: 16px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.featureCard:hover {
+  transform: translateY(-2px);
+  background: #ffffff;
+  border-color: rgba(139, 92, 246, 0.2);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.iconWrapper {
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(135deg, rgba(139,92,246,0.1), rgba(236,72,153,0.1));
+  border: 1px solid rgba(0,0,0,0.05);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #db2777;
+  flex-shrink: 0;
+}
+
+.iconWrapper svg {
+  width: 22px;
+  height: 22px;
+}
+
+.featureText {
+  flex: 1;
+}
+
+.featureTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #0f172a;
+  margin-bottom: 2px;
+}
+
+.featureDesc {
+  font-size: 0.8rem;
+  color: #475569;
+  line-height: 1.4;
+}
+
+/* SHOWCASE BENTO INTERFACE */
+.showcaseWrapper {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 20px;
+  align-items: center;
+  perspective: 1000px;
+}
+
+/* TICKET MOCKUP */
+.ticketMockup {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  background: #ffffff;
+  border-radius: 24px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0,0,0,0.05) inset;
+  transform: rotateY(5deg) rotateX(2deg);
+  transition: transform 0.5s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.ticketMockup:hover {
+  transform: rotateY(0deg) rotateX(0deg);
+}
+
+.ticketImage {
+  width: 100%;
+  height: 220px;
+  background-image: url('https://images.unsplash.com/photo-1540039155732-d68a1834244b?auto=format&fit=crop&w=800&q=80');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.ticketGradient {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 50%;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+}
+
+.ticketBody {
+  padding: 24px;
+  background: #f1f5f9;
+  color: #0f172a;
+  position: relative;
+}
+
+/* Ticket dashed cutout effect */
+.ticketBody::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  background-image: radial-gradient(circle at 10px 0, transparent 12px, #f1f5f9 13px);
+  background-size: 24px 20px;
+  background-position: center top;
+  background-repeat: repeat-x;
+}
+
+.eventName {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.eventDate {
+  font-size: 0.9rem;
+  color: #475569;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ticketDetails {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  border-top: 1px dashed rgba(0,0,0,0.1);
+  border-bottom: 1px dashed rgba(0,0,0,0.1);
+  padding: 16px 0;
+}
+
+.detailCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.detailLabel {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  color: #64748b;
+  margin-bottom: 4px;
+}
+
+.detailValue {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.qrSection {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.qrCode {
+  width: 80px;
+  height: 80px;
+  background: #ffffff;
+  padding: 4px;
+  border-radius: 8px;
+}
+
+/* CHECKOUT MOCKUP */
+.checkoutPanel {
+  grid-column: 2;
+  grid-row: 1;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+  border: 1px solid rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+}
+
+.checkoutTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #0f172a;
+  margin-bottom: 16px;
+}
+
+.orderRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  color: #475569;
+  margin-bottom: 12px;
+}
+
+.orderTotal {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-top: 8px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(0,0,0,0.05);
+  margin-bottom: 20px;
+}
+
+.payBtn {
+  background: #0f172a;
+  color: #ffffff;
+  padding: 12px;
+  border-radius: 12px;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* SEAT MAP MOCKUP */
+.seatMapPanel {
+  grid-column: 2;
+  grid-row: 2;
+  background: linear-gradient(145deg, #ffffff, #f8fafc);
+  border-radius: 20px;
+  padding: 24px;
+  color: #0f172a;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stage {
+  width: 80%;
+  height: 24px;
+  background: rgba(139, 92, 246, 0.1);
+  border-radius: 12px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #6d28d9;
+}
+
+.seatsGrid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px;
+  width: 100%;
+}
+
+.seat {
+  aspect-ratio: 1;
+  background: rgba(0,0,0,0.05);
+  border-radius: 6px;
+}
+.seat.taken {
+  background: rgba(0,0,0,0.15);
+}
+.seat.selected {
+  background: #ec4899;
+  box-shadow: 0 4px 10px rgba(236, 72, 153, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .section { height: auto; padding-top: 120px; }
+  .container { grid-template-columns: 1fr; grid-template-rows: auto; min-height: auto; }
+  .showcaseWrapper { grid-column: 1; grid-row: auto; margin-top: 24px; perspective: none; }
+  .ticketMockup { transform: none; }
+}
+
+@media (max-width: 768px) {
+  .showcaseWrapper { grid-template-columns: 1fr; }
+  .ticketMockup { grid-column: 1; grid-row: auto; }
+  .checkoutPanel { grid-column: 1; grid-row: auto; }
+  .seatMapPanel { grid-column: 1; grid-row: auto; }
+}

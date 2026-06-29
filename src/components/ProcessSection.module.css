@@ -1,0 +1,82 @@
+.process {
+  background: var(--color-bg);
+}
+
+.stepsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-xl);
+  position: relative;
+}
+
+.stepCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--space-2xl) var(--space-xl);
+  position: relative;
+  cursor: pointer;
+}
+
+.stepCard:hover {
+  transform: translateY(-4px);
+}
+
+.stepNumber {
+  font-family: var(--font-heading), 'Fredoka', sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  opacity: 0.12;
+  position: absolute;
+  top: 12px;
+  right: 20px;
+  line-height: 1;
+}
+
+.stepIconWrap {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-lg);
+}
+
+.stepIcon {
+  width: 32px;
+  height: 32px;
+}
+
+.stepIcon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.stepTitle {
+  font-family: var(--font-heading), 'Fredoka', sans-serif;
+  margin-bottom: var(--space-sm);
+}
+
+.connector {
+  display: none;
+  position: absolute;
+  right: -32px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+}
+
+@media (min-width: 769px) {
+  .connector {
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .stepsGrid {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+}

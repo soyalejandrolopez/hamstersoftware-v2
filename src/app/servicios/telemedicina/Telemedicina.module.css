@@ -1,0 +1,372 @@
+.section {
+  position: relative;
+  min-height: 100vh;
+  background-color: #f8fafc;
+  color: #0f172a;
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+  padding: 120px 0 60px;
+  display: flex;
+  align-items: center;
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  grid-template-rows: auto 1fr;
+  gap: 24px;
+  min-height: calc(100vh - 180px);
+  align-items: center;
+}
+
+/* HERO SECTION */
+.hero {
+  grid-column: 1;
+  grid-row: 1;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.badge {
+  display: inline-block;
+  padding: 6px 12px;
+  background: rgba(14, 165, 233, 0.1);
+  color: #0284c7;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  align-self: flex-start;
+}
+
+.title {
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 12px;
+  color: #0f172a;
+}
+
+.highlight {
+  color: #0ea5e9;
+}
+
+.subtitle {
+  font-size: 0.95rem;
+  color: #475569;
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+
+.ctaGroup {
+  display: flex;
+  gap: 16px;
+}
+
+.primaryBtn {
+  background: #0ea5e9;
+  color: #ffffff;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 8px 16px rgba(14, 165, 233, 0.25);
+  transition: all 0.3s ease;
+}
+
+.primaryBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(14, 165, 233, 0.35);
+  background: #0284c7;
+}
+
+/* FEATURES GRID */
+.features {
+  grid-column: 1;
+  grid-row: 2;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  align-content: start;
+}
+
+.featureCard {
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.05);
+  padding: 16px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+
+.featureCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+}
+
+.iconWrapper {
+  width: 44px;
+  height: 44px;
+  background: rgba(14, 165, 233, 0.1);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0ea5e9;
+  flex-shrink: 0;
+}
+
+.iconWrapper svg {
+  width: 22px;
+  height: 22px;
+}
+
+.featureText {
+  flex: 1;
+}
+
+.featureTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #0f172a;
+  margin-bottom: 2px;
+}
+
+.featureDesc {
+  font-size: 0.8rem;
+  color: #64748b;
+  line-height: 1.4;
+}
+
+/* SHOWCASE BENTO INTERFACE */
+.showcaseWrapper {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: auto 1fr;
+  gap: 20px;
+  align-items: stretch;
+}
+
+/* Video Call Mockup */
+.videoMockup {
+  grid-column: 1 / span 2;
+  grid-row: 1;
+  background: #000;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+  height: 400px;
+}
+
+.mainVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.85;
+}
+
+.pipVideo {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 160px;
+  height: 100px;
+  background: #1e293b;
+  border-radius: 12px;
+  border: 2px solid #ffffff;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.pipVideo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.videoControls {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+  padding: 12px 24px;
+  border-radius: 30px;
+  display: flex;
+  gap: 16px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.controlBtn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0f172a;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.controlBtn:hover {
+  background: #ffffff;
+  transform: scale(1.05);
+}
+
+.controlBtn.danger {
+  background: #ef4444;
+  color: #fff;
+}
+
+/* Patient Data Panel */
+.patientPanel {
+  grid-column: 1;
+  grid-row: 2;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+  border: 1px solid rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.patientHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.patientAvatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #e2e8f0;
+  object-fit: cover;
+}
+
+.patientName {
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: #0f172a;
+}
+
+.patientDetail {
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+.vitalsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.vitalCard {
+  background: #f8fafc;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.03);
+}
+
+.vitalLabel {
+  font-size: 0.75rem;
+  color: #64748b;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.vitalValue {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+/* Calendar / Booking Panel */
+.calendarPanel {
+  grid-column: 2;
+  grid-row: 2;
+  background: linear-gradient(145deg, #0ea5e9, #0284c7);
+  border-radius: 20px;
+  padding: 24px;
+  color: #ffffff;
+  box-shadow: 0 15px 35px rgba(14, 165, 233, 0.2);
+  display: flex;
+  flex-direction: column;
+}
+
+.calendarTitle {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.appointmentItem {
+  background: rgba(255,255,255,0.1);
+  border-radius: 10px;
+  padding: 12px;
+  margin-bottom: 12px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.aptTime {
+  font-size: 0.75rem;
+  opacity: 0.8;
+  margin-bottom: 4px;
+}
+
+.aptPatient {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.aptType {
+  font-size: 0.8rem;
+  opacity: 0.9;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .section { height: auto; padding-top: 120px; }
+  .container { grid-template-columns: 1fr; grid-template-rows: auto; min-height: auto; }
+  .showcaseWrapper { grid-column: 1; grid-row: auto; margin-top: 24px; }
+}
+
+@media (max-width: 768px) {
+  .showcaseWrapper { grid-template-columns: 1fr; }
+  .videoMockup { grid-column: 1; height: 300px; }
+  .patientPanel { grid-column: 1; grid-row: auto; }
+  .calendarPanel { grid-column: 1; grid-row: auto; }
+}

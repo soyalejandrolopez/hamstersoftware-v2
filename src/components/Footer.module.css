@@ -1,0 +1,128 @@
+.footer {
+  background: var(--color-text);
+  color: rgba(255, 255, 255, 0.7);
+  padding: var(--space-4xl) var(--space-xl) 0;
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: var(--space-3xl);
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding-bottom: var(--space-3xl);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Brand */
+.brand {
+  max-width: 340px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  text-decoration: none;
+  margin-bottom: var(--space-lg);
+  cursor: pointer;
+}
+
+.logoIcon {
+  width: 32px;
+  height: 32px;
+}
+
+.logoText {
+  font-family: var(--font-heading), 'Fredoka', sans-serif;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: white;
+}
+
+.logoAccent {
+  color: var(--color-primary-light);
+}
+
+.brandDesc {
+  font-size: 0.875rem;
+  line-height: 1.7;
+  margin-bottom: var(--space-lg);
+}
+
+.socials {
+  display: flex;
+  gap: var(--space-md);
+}
+
+.socialLink {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.6);
+  transition: all var(--transition-base);
+  cursor: pointer;
+}
+
+.socialLink:hover {
+  background: var(--color-primary);
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Link columns */
+.linkColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.linkTitle {
+  font-family: var(--font-heading), 'Fredoka', sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: var(--space-lg);
+  letter-spacing: 0.01em;
+}
+
+.linkList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.link {
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.55);
+  transition: color var(--transition-fast);
+  cursor: pointer;
+}
+
+.link:hover {
+  color: white;
+}
+
+/* Bottom */
+.bottom {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-xl) 0;
+  text-align: center;
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.35);
+}
+
+@media (max-width: 768px) {
+  .inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+  }
+
+  .brand {
+    max-width: 100%;
+  }
+}
