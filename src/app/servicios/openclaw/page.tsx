@@ -21,18 +21,18 @@ export default function OpenClawPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className={styles.badge}>Teleoperación & Robótica</div>
+            <div className={styles.badge}>Inteligencia Artificial</div>
             <h1 className={styles.title}>
-              Sistema <span className={styles.highlight}>OpenClaw</span>
+              Asistente AI <span className={styles.highlight}>OpenClaw</span>
             </h1>
             <p className={styles.subtitle}>
-              Lleva el control de tu hardware a la nube. Nuestra plataforma permite controlar brazos robóticos, máquinas de garra (claw machines) y sistemas IoT en tiempo real desde cualquier dispositivo, con latencia ultra baja.
+              Tu agente autónomo personal. OpenClaw es una Inteligencia Artificial diseñada para trabajar por ti: redacta correos, analiza datos, interactúa con tus sistemas y ejecuta tareas repetitivas en piloto automático.
             </p>
             
             <div className={styles.ctaGroup}>
               <Link href="#demo" className={styles.primaryBtn}>
-                Ver Demo en Vivo
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                Iniciar Chat
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
               </Link>
             </div>
           </motion.div>
@@ -47,12 +47,12 @@ export default function OpenClawPage() {
             <div className={styles.featureCard}>
               <div className={styles.iconWrapper}>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                  <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
                 </svg>
               </div>
               <div className={styles.featureText}>
-                <h3 className={styles.featureTitle}>Baja Latencia</h3>
-                <p className={styles.featureDesc}>Transmisión de video WebRTC sub-segundo para controles precisos.</p>
+                <h3 className={styles.featureTitle}>Automatización Financiera</h3>
+                <p className={styles.featureDesc}>Analiza hojas de cálculo, genera reportes de ventas y envía facturas por correo.</p>
               </div>
             </div>
 
@@ -63,20 +63,20 @@ export default function OpenClawPage() {
                 </svg>
               </div>
               <div className={styles.featureText}>
-                <h3 className={styles.featureTitle}>Multidispositivo</h3>
-                <p className={styles.featureDesc}>Controla máquinas usando el teclado, mouse o pantalla táctil.</p>
+                <h3 className={styles.featureTitle}>Integración de Sistemas</h3>
+                <p className={styles.featureDesc}>Conecta OpenClaw con Odoo, WordPress y tu CRM para ejecutar acciones mediante lenguaje natural.</p>
               </div>
             </div>
 
             <div className={styles.featureCard}>
               <div className={styles.iconWrapper}>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line>
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
                 </svg>
               </div>
               <div className={styles.featureText}>
-                <h3 className={styles.featureTitle}>API IoT Abierta</h3>
-                <p className={styles.featureDesc}>Integración sencilla con Raspberry Pi, Arduino y PLCs industriales.</p>
+                <h3 className={styles.featureTitle}>Agente Autónomo</h3>
+                <p className={styles.featureDesc}>Dale un objetivo complejo y el agente dividirá el problema en pasos lógicos hasta resolverlo.</p>
               </div>
             </div>
           </motion.div>
@@ -89,52 +89,78 @@ export default function OpenClawPage() {
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             
-            {/* Camera Stream Mockup */}
-            <div className={styles.streamPanel}>
-              <div className={styles.streamHeader}>
-                <div className={styles.streamTitle}>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M23 7l-7 5 7 5V7z"></path><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
-                  Cámara 1: Eje Z (Garra)
-                </div>
-                <div className={styles.liveIndicator}>
-                  <div className={styles.liveDot}></div>
-                  LIVE
+            {/* AI CHAT INTERFACE MOCKUP */}
+            <div className={styles.chatPanel}>
+              <div className={styles.chatHeader}>
+                <div className={styles.aiProfile}>
+                  <div className={styles.aiAvatar}>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 2a10 10 0 1 0 10 10H12V2z"></path><path d="M12 12L2.1 7.1"></path><path d="M12 12l9.9 4.9"></path></svg>
+                  </div>
+                  <div>
+                    <div className={styles.aiName}>OpenClaw Agent</div>
+                    <div className={styles.aiStatus}>
+                      <div className={styles.aiStatusDot}></div>
+                      Online & Listo
+                    </div>
+                  </div>
                 </div>
               </div>
               
-              <div className={styles.videoFeed}>
-                {/* Simulated crosshair/reticle */}
-                <div className={styles.verticalLine}></div>
-                <div className={styles.targetReticle}></div>
-              </div>
-            </div>
-
-            {/* Joystick Panel */}
-            <div className={styles.controlPanel}>
-              <div className={styles.joystickBase}>
-                <div className={styles.controlArrows}>
-                  <div className={`${styles.arrow} ${styles.top}`}>▲</div>
-                  <div className={`${styles.arrow} ${styles.bottom}`}>▼</div>
-                  <div className={`${styles.arrow} ${styles.left}`}>◀</div>
-                  <div className={`${styles.arrow} ${styles.right}`}>▶</div>
+              <div className={styles.chatBody}>
+                <div className={`${styles.message} ${styles.user}`}>
+                  <div className={styles.bubble}>
+                    Genera un reporte semanal usando los datos de ventas de Stripe y envíalo a mi equipo de marketing.
+                  </div>
                 </div>
-                <div className={styles.joystickStick}></div>
+
+                <div className={`${styles.message} ${styles.ai}`}>
+                  <div className={styles.bubble}>
+                    ¡Entendido! Dame un momento mientras analizo la base de datos de Stripe y redacto el correo.
+                  </div>
+                </div>
+              </div>
+
+              <div className={styles.chatInputArea}>
+                <input type="text" className={styles.chatInput} placeholder="Escribe tu siguiente tarea..." readOnly />
+                <button className={styles.sendBtn}>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+                </button>
               </div>
             </div>
 
-            {/* Stats / Action Panel */}
-            <div className={styles.statsPanel}>
-              <div className={styles.statItem}>
-                <span className={styles.statLabel}>Latencia Red</span>
-                <span className={styles.statValue}>42 <span className={styles.statUnit}>ms</span></span>
+            {/* Agent Tasks Execution Mockup */}
+            <div className={styles.tasksPanel}>
+              <div className={styles.tasksHeader}>
+                <span>Terminal del Agente</span>
+                <span style={{color: '#34d399'}}>Ejecutando...</span>
               </div>
-              <div className={styles.statItem}>
-                <span className={styles.statLabel}>Fuerza Motor Z</span>
-                <span className={styles.statValue}>85 <span className={styles.statUnit}>%</span></span>
+              
+              <div className={styles.taskItem}>
+                <div className={styles.taskIcon}>✓</div>
+                <div className={styles.taskText}>Conectando a API Stripe</div>
               </div>
-              <button className={styles.actionBtn}>
-                Descender Garra
-              </button>
+              <div className={styles.taskItem}>
+                <div className={styles.taskIcon}>✓</div>
+                <div className={styles.taskText}>Extrayendo CSV de Ventas</div>
+              </div>
+              <div className={styles.taskItem}>
+                <div className={styles.taskSpinner}></div>
+                <div className={styles.taskText}>Generando gráficas PDF</div>
+              </div>
+            </div>
+
+            {/* AI Skills Profile */}
+            <div className={styles.skillsPanel}>
+              <div className={styles.tasksHeader}>
+                Habilidades Activas
+              </div>
+              <div className={styles.skillTags}>
+                <span className={styles.skillTag}>Web Scraping</span>
+                <span className={styles.skillTag}>Análisis de Datos</span>
+                <span className={styles.skillTag}>Gestión CRM</span>
+                <span className={styles.skillTag}>Redacción Emails</span>
+                <span className={styles.skillTag}>Programación Python</span>
+              </div>
             </div>
 
           </motion.div>
