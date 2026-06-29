@@ -21,42 +21,31 @@ export default function VulnerabilidadesPage() {
   useEffect(() => {
     async function fetchVulns() {
       try {
-        // Conectamos a la API pública de CIRCL (Computer Incident Response Center Luxembourg)
-        // Soporta CORS nativo, sin restricciones geográficas y devuelve las últimas vulnerabilidades
         const res = await fetch('https://cve.circl.lu/api/last');
         const json = await res.json();
         
         if (json && Array.isArray(json)) {
           const mappedVulns: Vulnerability[] = [];
           
-          // La API de CIRCL devuelve documentos CSAF, extraemos las vulnerabilidades de cada documento
           for (const doc of json) {
-            if (doc.vulnerabilities && Array.isArray(doc.vulnerabilities)) {
-              for (const v of doc.vulnerabilities) {
-                // Buscamos un score CVSS
-                let score = null;
-                if (v.scores && v.scores.length > 0) {
-                  const s = v.scores[0];
-                  score = s.cvss_v3?.baseScore || s.cvss_v2?.baseScore || null;
-                }
-                
-                // Extraemos la descripción
-                const desc = v.notes?.find((n: any) => n.category === 'description')?.text 
-                  || v.notes?.[0]?.text 
-                  || 'Sin descripción disponible.';
+            let score = null;
+            const dbSev = doc.database_specific?.severity?.toUpperCase();
+            
+            // Map text severity to numeric proxy for existing getSeverity logic
+            if (dbSev === 'CRITICAL') score = 9.5;
+            else if (dbSev === 'HIGH') score = 7.5;
+            else if (dbSev === 'MODERATE' || dbSev === 'MEDIUM') score = 5.5;
+            else if (dbSev === 'LOW') score = 2.5;
 
-                mappedVulns.push({
-                  id: v.cve || 'CVE-Desconocido',
-                  summary: desc,
-                  cvss: score,
-                  Published: v.discovery_date || v.release_date || ''
-                });
-              }
-            }
+            mappedVulns.push({
+              id: (doc.aliases && doc.aliases.length > 0) ? doc.aliases[0] : doc.id,
+              summary: doc.details || 'Sin descripción disponible.',
+              cvss: score,
+              Published: doc.published || doc.modified || ''
+            });
           }
 
-          // Filtramos cualquier posible entrada corrupta y tomamos las primeras 30
-          const validVulns = mappedVulns.filter(v => v.id !== 'CVE-Desconocido').slice(0, 30);
+          const validVulns = mappedVulns.filter(v => v.id).slice(0, 30);
           setVulns(validVulns);
         }
       } catch (error) {
