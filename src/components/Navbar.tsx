@@ -18,6 +18,7 @@ const navLinks = [
       { label: 'Sistema Telemedicina', href: '/servicios/telemedicina' },
       { label: 'Reserva y Boletos', href: '/servicios/reserva-boletos' },
       { label: 'Sistema Odoo CRM', href: '/servicios/odoo' },
+      { label: 'Plugins WordPress', href: '/servicios/plugins-wordpress' },
     ]
   },
   { label: 'Industrias', href: '/#industrias' },

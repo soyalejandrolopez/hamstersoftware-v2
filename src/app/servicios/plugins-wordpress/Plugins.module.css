@@ -1,0 +1,359 @@
+.section {
+  position: relative;
+  min-height: 100vh;
+  background-color: #f0f0f1; /* WP Admin Light Gray */
+  color: #3c434a;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  overflow-x: hidden;
+  padding: 120px 0 60px;
+  display: flex;
+  align-items: center;
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  grid-template-rows: auto 1fr;
+  gap: 24px;
+  min-height: calc(100vh - 180px);
+  align-items: center;
+}
+
+/* HERO SECTION */
+.hero {
+  grid-column: 1;
+  grid-row: 1;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.badge {
+  display: inline-block;
+  padding: 6px 14px;
+  background: rgba(34, 113, 177, 0.1);
+  color: #2271b1;
+  border: 1px solid rgba(34, 113, 177, 0.2);
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  align-self: flex-start;
+  letter-spacing: 0.5px;
+}
+
+.title {
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 12px;
+  color: #1d2327;
+}
+
+.highlight {
+  color: #2271b1;
+}
+
+.subtitle {
+  font-size: 0.95rem;
+  color: #50575e;
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+
+.ctaGroup {
+  display: flex;
+  gap: 16px;
+}
+
+.primaryBtn {
+  background: #2271b1;
+  color: #ffffff;
+  padding: 12px 24px;
+  border-radius: 4px; /* WP styling */
+  font-weight: 500;
+  font-size: 0.95rem;
+  border: 1px solid #2271b1;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.primaryBtn:hover {
+  background: #135e96;
+  border-color: #135e96;
+}
+
+/* FEATURES GRID */
+.features {
+  grid-column: 1;
+  grid-row: 2;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  align-content: start;
+}
+
+.featureCard {
+  background: #ffffff;
+  border: 1px solid #c3c4c7;
+  padding: 16px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: all 0.3s ease;
+}
+
+.featureCard:hover {
+  border-color: #2271b1;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.iconWrapper {
+  width: 44px;
+  height: 44px;
+  background: #f6f7f7;
+  border: 1px solid #dcdde1;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #2271b1;
+  flex-shrink: 0;
+}
+
+.iconWrapper svg {
+  width: 20px;
+  height: 20px;
+}
+
+.featureText {
+  flex: 1;
+}
+
+.featureTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1d2327;
+  margin-bottom: 2px;
+}
+
+.featureDesc {
+  font-size: 0.8rem;
+  color: #646970;
+  line-height: 1.4;
+}
+
+/* SHOWCASE BENTO INTERFACE */
+.showcaseWrapper {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  gap: 20px;
+  align-items: stretch;
+}
+
+/* WP ADMIN MOCKUP */
+.wpAdminPanel {
+  background: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: row;
+  border: 1px solid #c3c4c7;
+  min-height: 400px;
+}
+
+.wpSidebar {
+  width: 200px;
+  background: #1d2327;
+  color: #a7aaad;
+  display: flex;
+  flex-direction: column;
+}
+
+.wpSidebarHeader {
+  padding: 12px 16px;
+  background: #2c3338;
+  color: #fff;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+}
+
+.wpMenu {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 0 0;
+}
+
+.wpMenuItem {
+  padding: 8px 16px;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.wpMenuItem:hover {
+  color: #72aee6;
+}
+
+.wpMenuItem.active {
+  background: #2271b1;
+  color: #fff;
+}
+
+.wpMenuItem svg {
+  width: 16px;
+  height: 16px;
+}
+
+.wpContent {
+  flex: 1;
+  background: #f0f0f1;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.wpHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wpTitle {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #1d2327;
+}
+
+.wpSaveBtn {
+  background: #2271b1;
+  color: #fff;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.wpBox {
+  background: #fff;
+  border: 1px solid #c3c4c7;
+  border-radius: 4px;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.04);
+}
+
+.wpBoxHeader {
+  padding: 12px 16px;
+  border-bottom: 1px solid #c3c4c7;
+  font-weight: 600;
+  color: #1d2327;
+}
+
+.wpBoxContent {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.wpFormGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.wpLabel {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #1d2327;
+}
+
+.wpInput {
+  padding: 6px 8px;
+  border: 1px solid #8c8f94;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  width: 100%;
+  max-width: 300px;
+}
+
+.wpToggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: #1d2327;
+}
+
+.wpToggleSwitch {
+  width: 36px;
+  height: 20px;
+  background: #2271b1;
+  border-radius: 10px;
+  position: relative;
+}
+
+.wpToggleSwitch::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 16px;
+  height: 16px;
+  background: #fff;
+  border-radius: 50%;
+}
+
+.codePanel {
+  background: #1e1e1e;
+  border-radius: 4px;
+  padding: 16px;
+  font-family: monospace;
+  font-size: 0.8rem;
+  color: #d4d4d4;
+  overflow-x: auto;
+  border: 1px solid #333;
+}
+
+.keyword { color: #569cd6; }
+.string { color: #ce9178; }
+.function { color: #dcdcaa; }
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .section { height: auto; padding-top: 120px; }
+  .container { grid-template-columns: 1fr; grid-template-rows: auto; min-height: auto; }
+  .showcaseWrapper { grid-column: 1; grid-row: auto; margin-top: 24px; }
+}
+
+@media (max-width: 768px) {
+  .wpAdminPanel { flex-direction: column; }
+  .wpSidebar { width: 100%; height: auto; flex-direction: row; flex-wrap: wrap; }
+  .wpMenu { display: flex; margin: 0; padding: 8px; gap: 4px; flex-wrap: wrap; }
+  .wpMenuItem { padding: 4px 8px; border-radius: 4px; }
+}
