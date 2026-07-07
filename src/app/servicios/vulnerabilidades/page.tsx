@@ -21,32 +21,54 @@ export default function VulnerabilidadesPage() {
   useEffect(() => {
     async function fetchVulns() {
       try {
-        const res = await fetch('https://cve.circl.lu/api/last');
+        // NVD API 2.0 requires ISO-8601 timestamps without timezone suffix but with milliseconds
+        // Best approach for client side: query the last 7 days
+        const endDate = new Date();
+        const startDate = new Date();
+        startDate.setDate(endDate.getDate() - 7);
+
+        const formatNVDDate = (d: Date) => d.toISOString().split('.')[0] + '.000';
+        
+        const url = `https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=${formatNVDDate(startDate)}&pubEndDate=${formatNVDDate(endDate)}&resultsPerPage=30`;
+        
+        const res = await fetch(url);
+        if (!res.ok) {
+          throw new Error(`Error en la API de NVD: ${res.statusText}`);
+        }
+        
         const json = await res.json();
         
-        if (json && Array.isArray(json)) {
+        if (json && json.vulnerabilities && Array.isArray(json.vulnerabilities)) {
           const mappedVulns: Vulnerability[] = [];
           
-          for (const doc of json) {
-            let score = null;
-            const dbSev = doc.database_specific?.severity?.toUpperCase();
-            
-            // Map text severity to numeric proxy for existing getSeverity logic
-            if (dbSev === 'CRITICAL') score = 9.5;
-            else if (dbSev === 'HIGH') score = 7.5;
-            else if (dbSev === 'MODERATE' || dbSev === 'MEDIUM') score = 5.5;
-            else if (dbSev === 'LOW') score = 2.5;
+          for (const item of json.vulnerabilities) {
+            const doc = item.cve;
+            if (!doc) continue;
+
+            // Obtener descripción (preferiblemente en inglés o la primera disponible)
+            const descObj = doc.descriptions?.find((d: any) => d.lang === 'en') || doc.descriptions?.[0];
+            const summary = descObj ? descObj.value : 'Sin descripción disponible.';
+
+            // Obtener puntuación CVSS (V3 > V4 > V2)
+            let cvss = null;
+            const metrics = doc.metrics || {};
+            if (metrics.cvssMetricV31?.[0]) cvss = metrics.cvssMetricV31[0].cvssData.baseScore;
+            else if (metrics.cvssMetricV30?.[0]) cvss = metrics.cvssMetricV30[0].cvssData.baseScore;
+            else if (metrics.cvssMetricV40?.[0]) cvss = metrics.cvssMetricV40[0].cvssData.baseScore;
+            else if (metrics.cvssMetricV2?.[0]) cvss = metrics.cvssMetricV2[0].cvssData.baseScore;
 
             mappedVulns.push({
-              id: (doc.aliases && doc.aliases.length > 0) ? doc.aliases[0] : doc.id,
-              summary: doc.details || 'Sin descripción disponible.',
-              cvss: score,
-              Published: doc.published || doc.modified || ''
+              id: doc.id,
+              summary: summary,
+              cvss: cvss,
+              Published: doc.published || doc.lastModified || ''
             });
           }
 
-          const validVulns = mappedVulns.filter(v => v.id).slice(0, 30);
-          setVulns(validVulns);
+          // NVD devuelve ordenado por fecha de publicación ascendente (más antiguo primero)
+          // Invertimos el array para mostrar los más recientes arriba
+          mappedVulns.reverse();
+          setVulns(mappedVulns.slice(0, 30));
         }
       } catch (error) {
         console.error("Error fetching vulnerabilities", error);

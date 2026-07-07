@@ -13,7 +13,7 @@
 .gradientBg {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, #F0F6FC 0%, #E0EBF5 30%, #D6E8F5 60%, #FFFBE6 100%);
+  background: linear-gradient(135deg, #F8FAFC 0%, #EFF6FF 40%, #F1F5F9 70%, #E2E8F0 100%);
   z-index: 0;
 }
 
@@ -30,7 +30,7 @@
 .gradientOrb1 {
   width: 500px;
   height: 500px;
-  background: rgba(2, 79, 144, 0.18);
+  background: rgba(2, 79, 144, 0.08);
   top: -10%;
   left: -5%;
 }
@@ -38,7 +38,7 @@
 .gradientOrb2 {
   width: 400px;
   height: 400px;
-  background: rgba(254, 213, 20, 0.14);
+  background: rgba(2, 79, 144, 0.05);
   top: 40%;
   right: -8%;
   animation-delay: -3s;
@@ -47,7 +47,7 @@
 .gradientOrb3 {
   width: 350px;
   height: 350px;
-  background: rgba(254, 213, 20, 0.1);
+  background: rgba(2, 79, 144, 0.04);
   bottom: -5%;
   left: 30%;
   animation-delay: -6s;
@@ -102,8 +102,9 @@
 }
 
 .title {
-  font-family: var(--font-heading), 'Fredoka', sans-serif;
+  font-family: var(--font-inter), -apple-system, sans-serif;
   margin-bottom: var(--space-lg);
+  letter-spacing: -0.02em;
 }
 
 .subtitle {

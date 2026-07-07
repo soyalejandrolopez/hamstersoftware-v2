@@ -1,24 +1,15 @@
 import type { Metadata } from "next";
-import { Fredoka, Nunito } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 
-const fredoka = Fredoka({
-  variable: "--font-heading",
+const inter = Inter({
   subsets: ["latin"],
+  variable: "--font-inter",
   display: "swap",
-  weight: ["400", "500", "600", "700"],
-  preload: false,
-});
-
-const nunito = Nunito({
-  variable: "--font-body",
-  subsets: ["latin"],
-  display: "swap",
-  weight: ["300", "400", "500", "600", "700"],
-  preload: false,
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://hamstersoftware.com"),
   title: "Hamster Software | Ingeniería de Datos y Soluciones de Software",
   description:
     "Arquitectamos e implementamos pipelines de datos robustos, aplicaciones móviles, ML y soluciones web personalizadas. Solicita tu cotización hoy.",
@@ -45,11 +36,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className={`${fredoka.variable} ${nunito.variable}`} suppressHydrationWarning>
+    <html lang="es" className={`${inter.variable}`} suppressHydrationWarning>
       <body
         suppressHydrationWarning
         style={{
-          fontFamily: "var(--font-body), 'Nunito', sans-serif",
+          fontFamily: "var(--font-inter), -apple-system, sans-serif",
         }}
       >
         <div style={{ display: 'none' }} dangerouslySetInnerHTML={{ __html: `

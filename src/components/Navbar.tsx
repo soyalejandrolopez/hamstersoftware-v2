@@ -19,6 +19,8 @@ const navLinks = [
       { label: 'Reserva y Boletos', href: '/servicios/reserva-boletos' },
       { label: 'Sistema Odoo CRM', href: '/servicios/odoo' },
       { label: 'Plugins WordPress', href: '/servicios/plugins-wordpress' },
+      { label: 'IoT Internet de las Cosas', href: '/servicios/iot' },
+      { label: 'Precios Medicamentos', href: '/servicios/precios-medicamentos' },
       { label: 'OpenClaw', href: '/servicios/openclaw' },
     ]
   },

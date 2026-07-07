@@ -1,6 +1,6 @@
 .footer {
   background: var(--color-text);
-  color: rgba(255, 255, 255, 0.7);
+  color: white;
   padding: var(--space-4xl) var(--space-xl) 0;
 }
 
@@ -34,7 +34,7 @@
 }
 
 .logoText {
-  font-family: var(--font-heading), 'Fredoka', sans-serif;
+  font-family: var(--font-inter), -apple-system, sans-serif;
   font-size: 1.125rem;
   font-weight: 700;
   color: white;
@@ -47,6 +47,7 @@
 .brandDesc {
   font-size: 0.875rem;
   line-height: 1.7;
+  color: white;
   margin-bottom: var(--space-lg);
 }
 
@@ -81,7 +82,7 @@
 }
 
 .linkTitle {
-  font-family: var(--font-heading), 'Fredoka', sans-serif;
+  font-family: var(--font-inter), -apple-system, sans-serif;
   font-size: 0.9375rem;
   font-weight: 600;
   color: white;
@@ -97,23 +98,22 @@
 
 .link {
   font-size: 0.8125rem;
-  color: rgba(255, 255, 255, 0.55);
-  transition: color var(--transition-fast);
+  color: white;
+  transition: opacity var(--transition-fast);
   cursor: pointer;
 }
 
 .link:hover {
-  color: white;
+  opacity: 0.8;
 }
 
-/* Bottom */
 .bottom {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: var(--space-xl) 0;
   text-align: center;
   font-size: 0.8125rem;
-  color: rgba(255, 255, 255, 0.35);
+  color: white;
 }
 
 @media (max-width: 768px) {

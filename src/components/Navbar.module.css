@@ -282,14 +282,18 @@
 
 .navDropdown {
   position: absolute;
-  top: 100%;
-  left: 0;
+  top: calc(100% + 10px);
+  left: -20px;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  padding: 0.5rem 0;
-  min-width: 200px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  width: max-content;
+  min-width: 500px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.25rem 2rem;
+  box-shadow: var(--shadow-xl);
   opacity: 0;
   visibility: hidden;
   transform: translateY(10px);
@@ -304,17 +308,21 @@
 }
 
 .navSubLink {
-  display: block;
-  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  padding: 0.625rem 1rem;
+  border-radius: var(--radius-md);
   color: var(--color-text);
   text-decoration: none;
-  font-size: 0.95rem;
-  transition: background 0.2s ease, color 0.2s ease;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
 }
 
 .navSubLink:hover {
-  background: var(--color-bg-alt);
+  background: var(--color-bg);
   color: var(--color-primary);
+  transform: translateX(3px);
 }
 
 .mobileSubLink {

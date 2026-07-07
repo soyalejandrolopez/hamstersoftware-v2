@@ -8,6 +8,8 @@ const serviceLinks = [
   'Software de Escritorio',
   'Machine Learning',
   'Desarrollo Móvil',
+  'IoT Internet de las Cosas',
+  'Precios Medicamentos',
   'Sistemas Bajo Demanda',
   'Desarrollo Web',
 ];
