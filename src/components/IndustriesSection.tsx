@@ -6,47 +6,47 @@ import styles from './IndustriesSection.module.css';
 
 const industries = [
   // Tech
-  { label: 'SaaS', color: '#024F90' },
-  { label: 'Micro SaaS', color: '#024F90' },
-  { label: 'B2B', color: '#024F90' },
-  { label: 'Developer Tools', color: '#024F90' },
-  { label: 'IA / Chatbots', color: '#024F90' },
-  { label: 'Ciberseguridad', color: '#024F90' },
+  { label: 'SaaS', color: '#0ea5e9' },
+  { label: 'Micro SaaS', color: '#0ea5e9' },
+  { label: 'B2B', color: '#0ea5e9' },
+  { label: 'Developer Tools', color: '#0ea5e9' },
+  { label: 'IA / Chatbots', color: '#0ea5e9' },
+  { label: 'Ciberseguridad', color: '#0ea5e9' },
   // Finance
-  { label: 'Fintech', color: '#FED514' },
-  { label: 'Banca', color: '#FED514' },
-  { label: 'Seguros', color: '#FED514' },
-  { label: 'Facturación', color: '#FED514' },
+  { label: 'Fintech', color: '#38bdf8' },
+  { label: 'Banca', color: '#38bdf8' },
+  { label: 'Seguros', color: '#38bdf8' },
+  { label: 'Facturación', color: '#38bdf8' },
   // Health
-  { label: 'Clínica Médica', color: '#024F90' },
-  { label: 'Farmacia', color: '#024F90' },
-  { label: 'Odontología', color: '#024F90' },
-  { label: 'Veterinaria', color: '#024F90' },
-  { label: 'Salud Mental', color: '#024F90' },
+  { label: 'Clínica Médica', color: '#0ea5e9' },
+  { label: 'Farmacia', color: '#0ea5e9' },
+  { label: 'Odontología', color: '#0ea5e9' },
+  { label: 'Veterinaria', color: '#0ea5e9' },
+  { label: 'Salud Mental', color: '#0ea5e9' },
   // E-commerce
-  { label: 'E-commerce', color: '#FED514' },
-  { label: 'Marketplace', color: '#FED514' },
-  { label: 'Suscripciones', color: '#FED514' },
-  { label: 'Delivery', color: '#FED514' },
+  { label: 'E-commerce', color: '#38bdf8' },
+  { label: 'Marketplace', color: '#38bdf8' },
+  { label: 'Suscripciones', color: '#38bdf8' },
+  { label: 'Delivery', color: '#38bdf8' },
   // Services
-  { label: 'Restaurantes', color: '#024F90' },
-  { label: 'Hoteles', color: '#024F90' },
-  { label: 'Belleza / Spa', color: '#024F90' },
-  { label: 'Servicios Legales', color: '#024F90' },
-  { label: 'Reservas', color: '#024F90' },
+  { label: 'Restaurantes', color: '#0ea5e9' },
+  { label: 'Hoteles', color: '#0ea5e9' },
+  { label: 'Belleza / Spa', color: '#0ea5e9' },
+  { label: 'Servicios Legales', color: '#0ea5e9' },
+  { label: 'Reservas', color: '#0ea5e9' },
   // Creative
-  { label: 'Portafolio', color: '#FED514' },
-  { label: 'Agencia', color: '#FED514' },
-  { label: 'Gaming', color: '#FED514' },
-  { label: 'Streaming', color: '#FED514' },
+  { label: 'Portafolio', color: '#38bdf8' },
+  { label: 'Agencia', color: '#38bdf8' },
+  { label: 'Gaming', color: '#38bdf8' },
+  { label: 'Streaming', color: '#38bdf8' },
   // Lifestyle
-  { label: 'Hábitos', color: '#024F90' },
-  { label: 'Recetas', color: '#024F90' },
-  { label: 'Meditación', color: '#024F90' },
+  { label: 'Hábitos', color: '#0ea5e9' },
+  { label: 'Recetas', color: '#0ea5e9' },
+  { label: 'Meditación', color: '#0ea5e9' },
   // Emerging
-  { label: 'Web3 / NFT', color: '#FED514' },
-  { label: 'Computación Cuántica', color: '#FED514' },
-  { label: 'Drones Autónomos', color: '#FED514' },
+  { label: 'Web3 / NFT', color: '#38bdf8' },
+  { label: 'Computación Cuántica', color: '#38bdf8' },
+  { label: 'Drones Autónomos', color: '#38bdf8' },
 ];
 
 export default function IndustriesSection() {
@@ -87,7 +87,7 @@ export default function IndustriesSection() {
               <span
                 key={i}
                 className={styles.pill}
-                style={{ borderColor: `${item.color}30`, color: item.color }}
+                style={{ borderColor: `${item.color}40`, color: '#fff' }}
               >
                 <span className={styles.pillDot} style={{ background: item.color }} />
                 {item.label}
@@ -101,7 +101,7 @@ export default function IndustriesSection() {
               <span
                 key={i}
                 className={styles.pill}
-                style={{ borderColor: `${item.color}30`, color: item.color }}
+                style={{ borderColor: `${item.color}40`, color: '#fff' }}
               >
                 <span className={styles.pillDot} style={{ background: item.color }} />
                 {item.label}

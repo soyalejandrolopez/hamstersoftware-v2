@@ -1,8 +1,7 @@
 .section {
   position: relative;
   min-height: 100vh;
-  background-color: #f8fafc;
-  color: #0f172a;
+  color: var(--color-text);
   font-family: 'Poppins', sans-serif;
   overflow-x: hidden;
   padding: 120px 0 60px;
@@ -52,7 +51,7 @@
   font-weight: 700;
   line-height: 1.15;
   margin-bottom: 12px;
-  color: #0f172a;
+  color: var(--color-text);
 }
 
 .highlight {
@@ -61,7 +60,7 @@
 
 .subtitle {
   font-size: 0.95rem;
-  color: #475569;
+  color: var(--color-text-muted);
   line-height: 1.5;
   margin-bottom: 24px;
 }

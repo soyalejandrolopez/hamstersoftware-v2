@@ -1,13 +1,12 @@
 .section {
-  padding: 120px 0 var(--space-2xl);
-  background-color: var(--color-bg);
+  padding: 120px 0 var(--space-lg);
   min-height: 100vh;
   position: relative;
   overflow: hidden;
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 0 var(--space-lg);
   position: relative;
@@ -20,11 +19,11 @@
 }
 
 .title {
-  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-size: clamp(1.5rem, 3vw, 2rem);
   font-weight: 800;
   color: var(--color-text);
   line-height: 1.1;
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-sm);
 }
 
 .highlight {
@@ -32,60 +31,188 @@
 }
 
 .subtitle {
-  font-size: 1.125rem;
+  font-size: 1rem;
   color: var(--color-text-muted);
   max-width: 600px;
   margin: 0 auto;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+/* Dashboard Layout */
+.dashboardGrid {
+  display: flex;
+  flex-direction: column;
   gap: var(--space-lg);
 }
 
-.card {
+/* KPIs */
+.kpiGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--space-md);
+}
+
+.kpiCard {
   background: var(--color-surface-glass);
   border: 1px solid var(--color-border);
   border-radius: 1rem;
-  padding: var(--space-lg);
+  padding: 1rem;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   display: flex;
-  flex-direction: column;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 4px 20px rgba(2, 79, 144, 0.05);
+  align-items: center;
+  gap: 0.75rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 30px rgba(2, 79, 144, 0.12);
+.kpiCard:hover {
+  transform: translateY(-2px);
   border-color: var(--color-primary-light);
 }
 
-.cardHeader {
+.kpiIconWrapper {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: var(--space-md);
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.iconTotal {
+  background: rgba(14, 165, 233, 0.1);
+  color: #0ea5e9;
+}
+
+.iconCritical {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+}
+
+.iconHigh {
+  background: rgba(249, 115, 22, 0.1);
+  color: #f97316;
+}
+
+.iconAvg {
+  background: rgba(168, 85, 247, 0.1);
+  color: #a855f7;
+}
+
+.kpiInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.kpiLabel {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.kpiValue {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--color-text);
+  line-height: 1;
+}
+
+/* Chart and Table Area */
+.dashboardMain {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+}
+
+@media (min-width: 1024px) {
+  .dashboardMain {
+    grid-template-columns: 1fr 2fr;
+  }
+}
+
+.chartContainer, .tableContainer {
+  background: var(--color-surface-glass);
+  border: 1px solid var(--color-border);
+  border-radius: 1rem;
+  padding: 1rem;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.sectionTitle {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Chart specifics */
+.chartWrapper {
+  width: 100%;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Table specifics */
+.tableWrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.vulnTable {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.vulnTable th {
+  padding: 0.75rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  border-bottom: 1px solid var(--color-border);
+  white-space: nowrap;
+}
+
+.vulnTable td {
+  padding: 0.75rem 1rem;
+  font-size: 0.75rem;
+  color: var(--color-text);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  vertical-align: middle;
+}
+
+.vulnTable tr:last-child td {
+  border-bottom: none;
+}
+
+.vulnTable tr:hover td {
+  background: rgba(255, 255, 255, 0.02);
 }
 
 .cveId {
-  font-size: 1.25rem;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--color-text);
-  margin: 0;
 }
 
-.date {
-  font-size: 0.875rem;
+.summaryCell {
+  max-width: 300px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   color: var(--color-text-muted);
-  margin-top: 0.25rem;
-  display: block;
 }
 
+/* Severity Badges */
 .severityBadge {
   padding: 0.25rem 0.75rem;
   border-radius: 100px;
@@ -93,6 +220,9 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  display: inline-block;
+  text-align: center;
+  min-width: 80px;
 }
 
 .severity_red {
@@ -125,35 +255,14 @@
   border: 1px solid var(--color-border-strong);
 }
 
-.summary {
-  font-size: 0.95rem;
-  color: var(--color-text-muted);
-  line-height: 1.6;
-  margin-bottom: var(--space-lg);
-  flex-grow: 1;
-  display: -webkit-box;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.cardFooter {
-  display: flex;
-  justify-content: flex-end;
-  border-top: 1px solid var(--color-border);
-  padding-top: var(--space-md);
-  margin-top: auto;
-}
-
 .link {
   color: var(--color-primary);
-  font-size: 0.875rem;
-  font-weight: 600;
   text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  font-weight: 500;
   transition: color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
 }
 
 .link:hover {
@@ -188,7 +297,7 @@
   position: absolute;
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, rgba(2, 79, 144, 0.08) 0%, rgba(2, 79, 144, 0) 70%);
+  background: radial-gradient(circle, rgba(14, 165, 233, 0.08) 0%, rgba(14, 165, 233, 0) 70%);
   top: -100px;
   right: -200px;
   border-radius: 50%;
@@ -200,7 +309,7 @@
   position: absolute;
   width: 800px;
   height: 800px;
-  background: radial-gradient(circle, rgba(254, 213, 20, 0.08) 0%, rgba(254, 213, 20, 0) 70%);
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.05) 0%, rgba(168, 85, 247, 0) 70%);
   bottom: -200px;
   left: -300px;
   border-radius: 50%;

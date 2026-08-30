@@ -33,7 +33,7 @@ const services: Service[] = [
       'Integración con Apache Spark y Kafka',
       'Marcos de calidad y gobernanza de datos',
     ],
-    color: '#024F90',
+    color: '#0ea5e9',
   },
   {
     icon: (
@@ -52,7 +52,7 @@ const services: Service[] = [
       'Estrategias incrementales y de carga completa',
       'Programación y monitoreo automatizado',
     ],
-    color: '#FED514',
+    color: '#38bdf8',
   },
   {
     icon: (
@@ -71,7 +71,7 @@ const services: Service[] = [
       'Componentes de gráficos personalizados',
       'Visualización geoespacial y de redes',
     ],
-    color: '#024F90',
+    color: '#0ea5e9',
   },
   {
     icon: (
@@ -91,7 +91,7 @@ const services: Service[] = [
       'Gestión de datos maestros (MDM)',
       'Catálogo de datos y seguimiento de linaje',
     ],
-    color: '#FED514',
+    color: '#38bdf8',
   },
   {
     icon: (
@@ -110,7 +110,7 @@ const services: Service[] = [
       'Arquitectura offline-first',
       'Sistemas de actualización y despliegue automático',
     ],
-    color: '#024F90',
+    color: '#0ea5e9',
   },
   {
     icon: (
@@ -129,7 +129,7 @@ const services: Service[] = [
       'MLOps y gestión del ciclo de vida de modelos',
       'Frameworks de A/B testing y experimentación',
     ],
-    color: '#FED514',
+    color: '#38bdf8',
   },
   {
     icon: (
@@ -147,7 +147,7 @@ const services: Service[] = [
       'Notificaciones push y compras in-app',
       'Optimización para App Store y Play Store',
     ],
-    color: '#024F90',
+    color: '#0ea5e9',
   },
   {
     icon: (
@@ -166,7 +166,7 @@ const services: Service[] = [
       'Diseño API-first y GraphQL',
       'Configuración de DevOps y pipelines CI/CD',
     ],
-    color: '#FED514',
+    color: '#38bdf8',
   },
   {
     icon: (
@@ -185,7 +185,7 @@ const services: Service[] = [
       'Optimización de rendimiento (Core Web Vitals)',
       'Integraciones con CMS headless y APIs',
     ],
-    color: '#024F90',
+    color: '#0ea5e9',
   },
   {
     icon: (
@@ -201,7 +201,7 @@ const services: Service[] = [
       'Pruebas de penetración (Pen Testing)',
       'Implementación de DevSecOps',
     ],
-    color: '#FED514',
+    color: '#38bdf8',
   },
 ];
 

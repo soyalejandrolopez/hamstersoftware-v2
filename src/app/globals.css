@@ -6,25 +6,25 @@
 /* --- CSS Custom Properties --- */
 :root {
   /* Brand Colors */
-  --color-primary: #024F90;
-  --color-primary-light: #0A6BB5;
-  --color-primary-dark: #013A6B;
-  --color-secondary: #6BA3D0;
-  --color-cta: #FED514;
-  --color-cta-hover: #E5BF00;
-  --color-accent-warm: #FED514;
-  --color-accent-warm-light: #FEE566;
+  --color-primary: #0ea5e9; /* Cyan-blue */
+  --color-primary-light: #38bdf8;
+  --color-primary-dark: #0284c7;
+  --color-secondary: #0ea5e9;
+  --color-cta: #38bdf8;
+  --color-cta-hover: #7dd3fc;
+  --color-accent-warm: #facc15;
+  --color-accent-warm-light: #fef08a;
 
-  /* Neutrals */
-  --color-bg: #F0F6FC;
-  --color-bg-alt: #E0EBF5;
-  --color-surface: #ffffff;
-  --color-surface-glass: rgba(255, 255, 255, 0.72);
-  --color-text: #0A1628;
-  --color-text-muted: #3D5A80;
-  --color-text-light: #5B7FA3;
-  --color-border: rgba(2, 79, 144, 0.12);
-  --color-border-strong: rgba(2, 79, 144, 0.24);
+  /* Neutrals - Dark Theme */
+  --color-bg: #041527;
+  --color-bg-alt: #071f3a;
+  --color-surface: #0a1c32;
+  --color-surface-glass: rgba(10, 28, 50, 0.6);
+  --color-text: #f8fafc;
+  --color-text-muted: #cbd5e1;
+  --color-text-light: #94a3b8;
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-border-strong: rgba(255, 255, 255, 0.25);
 
   /* Spacing */
   --space-xs: 0.25rem;
@@ -85,7 +85,8 @@ body {
   display: flex;
   flex-direction: column;
   color: var(--color-text);
-  background: var(--color-bg);
+  background: radial-gradient(circle at top right, #0a2141 0%, #041527 50%, #020b18 100%);
+  background-attachment: fixed;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.6;
@@ -157,7 +158,7 @@ button {
 }
 
 .text-gradient {
-  background: linear-gradient(135deg, var(--color-primary), var(--color-cta));
+  background: linear-gradient(135deg, #38bdf8, #f8fafc);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -198,15 +199,15 @@ button {
 .btn-secondary {
   padding: 0.875rem 2rem;
   background: transparent;
-  color: var(--color-primary);
+  color: var(--color-text);
   font-size: 1rem;
   border: 2px solid var(--color-border-strong);
 }
 
 .btn-secondary:hover {
-  background: var(--color-primary);
-  color: white;
-  border-color: var(--color-primary);
+  background: var(--color-surface-glass);
+  color: var(--color-text);
+  border-color: var(--color-primary-light);
   transform: translateY(-2px);
 }
 
@@ -434,9 +435,3 @@ body .skiptranslate {
   display: none !important;
 }
 
-/* --- Custom Cursor Overrides --- */
-@media (pointer: fine) {
-  body, a, button, input, select, textarea, .navLink, .btn {
-    cursor: none !important;
-  }
-}

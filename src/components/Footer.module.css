@@ -1,7 +1,10 @@
 .footer {
-  background: var(--color-text);
+  background: rgba(10, 28, 50, 0.6);
   color: white;
   padding: var(--space-4xl) var(--space-xl) 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  z-index: 10;
 }
 
 .inner {
@@ -11,7 +14,7 @@
   max-width: var(--max-width);
   margin: 0 auto;
   padding-bottom: var(--space-3xl);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* Brand */
@@ -72,6 +75,37 @@
 .socialLink:hover {
   background: var(--color-primary);
   color: white;
+  transform: translateY(-2px);
+}
+
+.verification {
+  margin-top: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.verificationText {
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-family: var(--font-inter), -apple-system, sans-serif;
+  text-align: left;
+  line-height: 1.5;
+}
+
+.verificationLogo {
+  height: 48px;
+  width: auto;
+  opacity: 0.9;
+  transition: opacity var(--transition-fast), transform 0.2s;
+  background-color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.verificationLogo:hover {
+  opacity: 1;
   transform: translateY(-2px);
 }
 

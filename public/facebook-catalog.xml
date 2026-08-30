@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:g="http://base.google.com/ns/1.0" version="2.0">
+  <channel>
+    <title>Hamster Software - Catálogo de Servicios</title>
+    <link>https://hamstersoftware.com</link>
+    <description>Catálogo oficial de servicios de tecnología y desarrollo de Hamster Software</description>
+    
+    <item>
+      <g:id>analisis-de-ventas</g:id>
+      <g:title>Análisis de Ventas e Inteligencia de Negocios</g:title>
+      <g:description>Transformamos tus datos de ventas en decisiones estratégicas. Dashboards en tiempo real y métricas clave.</g:description>
+      <g:link>https://hamstersoftware.com/servicios/analisis-de-ventas</g:link>
+      <g:image_link>https://hamstersoftware.com/catalog/analisis-de-ventas.png</g:image_link>
+      <g:brand>Hamster Software</g:brand>
+      <g:condition>new</g:condition>
+      <g:availability>in stock</g:availability>
+      <g:price>0.00 COP</g:price>
+    </item>
+
+    <item>
+      <g:id>iot</g:id>
+      <g:title>Internet de las Cosas (IoT)</g:title>
+      <g:description>Conecta dispositivos físicos a la red para monitoreo y control en tiempo real.</g:description>
+      <g:link>https://hamstersoftware.com/servicios/iot</g:link>
+      <g:image_link>https://hamstersoftware.com/catalog/iot.png</g:image_link>
+      <g:brand>Hamster Software</g:brand>
+      <g:condition>new</g:condition>
+      <g:availability>in stock</g:availability>
+      <g:price>0.00 COP</g:price>
+    </item>
+
+    <item>
+      <g:id>monitoreo-sismico</g:id>
+      <g:title>Sistemas de Monitoreo Sísmico</g:title>
+      <g:description>Desarrollo de sistemas para visualización y análisis de datos sísmicos en tiempo real.</g:description>
+      <g:link>https://hamstersoftware.com/servicios/monitoreo-sismico</g:link>
+      <g:image_link>https://hamstersoftware.com/catalog/monitoreo-sismico.png</g:image_link>
+      <g:brand>Hamster Software</g:brand>
+      <g:condition>new</g:condition>
+      <g:availability>in stock</g:availability>
+      <g:price>0.00 COP</g:price>
+    </item>
+
+    <item>
+      <g:id>odoo</g:id>
+      <g:title>Implementación y Desarrollo Odoo</g:title>
+      <g:description>Instalación, configuración y desarrollo de módulos a medida para el ERP Odoo.</g:description>
+      <g:link>https://hamstersoftware.com/servicios/odoo</g:link>
+      <g:image_link>https://hamstersoftware.com/catalog/odoo.png</g:image_link>
+      <g:brand>Hamster Software</g:brand>
+      <g:condition>new</g:condition>
+      <g:availability>in stock</g:availability>
+      <g:price>0.00 COP</g:price>
+    </item>
+
+    <item>
+      <g:id>openclaw</g:id>
+      <g:title>Implementaciones OpenClaw</g:title>
+      <g:description>Despliegue y configuración avanzada de arquitecturas tecnológicas con OpenClaw.</g:description>
+      <g:link>https://hamstersoftware.com/servicios/openclaw</g:link>
+      <g:image_link>https://hamstersoftware.com/catalog/openclaw.png</g:image_link>
+      <g:brand>Hamster Software</g:brand>
+      <g:condition>new</g:condition>
+      <g:availability>in stock</g:availability>
+      <g:price>0.00 COP</g:price>
+    </item>
+
+    <item>
+      <g:id>plugins-wordpress</g:id>
+      <g:title>Desarrollo de Plugins WordPress</g:title>
+      <g:description>Creación de plugins personalizados para extender la funcionalidad de tu sitio WordPress.</g:description>
+      <g:link>https://hamstersoftware.com/servicios/plugins-wordpress</g:link>
+      <g:image_link>https://hamstersoftware.com/catalog/plugins-wordpress.png</g:image_link>
+      <g:brand>Hamster Software</g:brand>
+      <g:condition>new</g:condition>
+      <g:availability>in stock</g:availability>
+      <g:price>0.00 COP</g:price>
+    </item>
+
+    <item>
+      <g:id>precios-medicamentos</g:id>
+      <g:title>Sistemas de Control de Precios de Medicamentos</g:title>
+      <g:description>Software especializado para el seguimiento, control y análisis de precios en el sector farmacéutico.</g:description>
+      <g:link>https://hamstersoftware.com/servicios/precios-medicamentos</g:link>
+      <g:image_link>https://hamstersoftware.com/catalog/precios-medicamentos.png</g:image_link>
+      <g:brand>Hamster Software</g:brand>
+      <g:condition>new</g:condition>
+      <g:availability>in stock</g:availability>
+      <g:price>0.00 COP</g:price>
+    </item>
+
+    <item>
+      <g:id>radio-streaming</g:id>
+      <g:title>Soluciones de Radio Streaming</g:title>
+      <g:description>Plataformas robustas para transmisión de audio en vivo y gestión de radio por internet.</g:description>
+      <g:link>https://hamstersoftware.com/servicios/radio-streaming</g:link>
+      <g:image_link>https://hamstersoftware.com/catalog/radio-streaming.png</g:image_link>
+      <g:brand>Hamster Software</g:brand>
+      <g:condition>new</g:condition>
+      <g:availability>in stock</g:availability>
+      <g:price>0.00 COP</g:price>
+    </item>
+
+    <item>
+      <g:id>reserva-boletos</g:id>
+      <g:title>Plataformas de Reserva de Boletos</g:title>
+      <g:description>Sistemas de venta de entradas y gestión de reservas para eventos o transporte.</g:description>
+      <g:link>https://hamstersoftware.com/servicios/reserva-boletos</g:link>
+      <g:image_link>https://hamstersoftware.com/catalog/reserva-boletos.png</g:image_link>
+      <g:brand>Hamster Software</g:brand>
+      <g:condition>new</g:condition>
+      <g:availability>in stock</g:availability>
+      <g:price>0.00 COP</g:price>
+    </item>
+
+    <item>
+      <g:id>resultados-deportivos</g:id>
+      <g:title>Plataformas de Resultados Deportivos</g:title>
+      <g:description>Integración de APIs y visualización en tiempo real de marcadores y estadísticas deportivas.</g:description>
+      <g:link>https://hamstersoftware.com/servicios/resultados-deportivos</g:link>
+      <g:image_link>https://hamstersoftware.com/catalog/resultados-deportivos.png</g:image_link>
+      <g:brand>Hamster Software</g:brand>
+      <g:condition>new</g:condition>
+      <g:availability>in stock</g:availability>
+      <g:price>0.00 COP</g:price>
+    </item>
+
+    <item>
+      <g:id>telemedicina</g:id>
+      <g:title>Software de Telemedicina</g:title>
+      <g:description>Plataformas seguras para consultas médicas virtuales, gestión de pacientes y videollamadas.</g:description>
+      <g:link>https://hamstersoftware.com/servicios/telemedicina</g:link>
+      <g:image_link>https://hamstersoftware.com/catalog/telemedicina.png</g:image_link>
+      <g:brand>Hamster Software</g:brand>
+      <g:condition>new</g:condition>
+      <g:availability>in stock</g:availability>
+      <g:price>0.00 COP</g:price>
+    </item>
+
+    <item>
+      <g:id>vulnerabilidades</g:id>
+      <g:title>Análisis de Vulnerabilidades (Ciberseguridad)</g:title>
+      <g:description>Auditorías de seguridad y escaneo de vulnerabilidades para proteger la infraestructura tecnológica de tu empresa.</g:description>
+      <g:link>https://hamstersoftware.com/servicios/vulnerabilidades</g:link>
+      <g:image_link>https://hamstersoftware.com/catalog/vulnerabilidades.png</g:image_link>
+      <g:brand>Hamster Software</g:brand>
+      <g:condition>new</g:condition>
+      <g:availability>in stock</g:availability>
+      <g:price>0.00 COP</g:price>
+    </item>
+
+  </channel>
+</rss>

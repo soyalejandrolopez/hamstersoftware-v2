@@ -1,14 +1,15 @@
+/* eslint-disable react-hooks/purity, @typescript-eslint/no-explicit-any */
 'use client';
 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import dynamic from 'next/dynamic';
+import { Activity, AlertTriangle, Layers, Radio } from 'lucide-react';
 import SmoothScroll from '@/components/SmoothScroll';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import styles from './Sismico.module.css';
 
-// Dynamic import para el mapa, Leaflet requiere acceso a "window" por lo que deshabilitamos SSR
 const EarthquakeMap = dynamic(() => import('./EarthquakeMap'), {
   ssr: false,
   loading: () => (
@@ -33,6 +34,11 @@ export default function MonitoreoSismicoPage() {
   const [earthquakes, setEarthquakes] = useState<Earthquake[]>([]);
   const [loading, setLoading] = useState(true);
 
+  // Metrics
+  const [maxMag, setMaxMag] = useState(0);
+  const [avgDepth, setAvgDepth] = useState(0);
+  const [tsunamiCount, setTsunamiCount] = useState(0);
+
   useEffect(() => {
     async function fetchQuakes() {
       try {
@@ -40,20 +46,37 @@ export default function MonitoreoSismicoPage() {
         const json = await res.json();
         
         if (json && json.features) {
+          let highestMag = 0;
+          let totalDepth = 0;
+          let tsunamis = 0;
+
           const mappedQuakes = json.features.map((feature: any) => {
+            const mag = feature.properties.mag;
+            const depth = feature.geometry.coordinates[2];
+            const tsunami = feature.properties.tsunami;
+
+            if (mag > highestMag) highestMag = mag;
+            totalDepth += depth;
+            if (tsunami === 1) tsunamis++;
+
             return {
               id: feature.id,
-              mag: feature.properties.mag,
+              mag: mag,
               place: feature.properties.place,
               time: feature.properties.time,
               url: feature.properties.url,
-              tsunami: feature.properties.tsunami,
-              depth: feature.geometry.coordinates[2],
-              coords: [feature.geometry.coordinates[1], feature.geometry.coordinates[0]] as [number, number] // Leaflet requiere [lat, lng]
+              tsunami: tsunami,
+              depth: depth,
+              coords: [feature.geometry.coordinates[1], feature.geometry.coordinates[0]] as [number, number]
             };
           });
 
           setEarthquakes(mappedQuakes);
+          setMaxMag(highestMag);
+          setTsunamiCount(tsunamis);
+          if (mappedQuakes.length > 0) {
+            setAvgDepth(totalDepth / mappedQuakes.length);
+          }
         }
       } catch (error) {
         console.error("Error fetching earthquakes", error);
@@ -71,29 +94,15 @@ export default function MonitoreoSismicoPage() {
     return 'green';
   };
 
-  const formatTime = (time: number) => {
-    const date = new Date(time);
-    return new Intl.DateTimeFormat('es-ES', { 
-      day: 'numeric',
-      month: 'short',
-      hour: '2-digit',
-      minute: '2-digit'
-    }).format(date);
-  };
-
   const getRelativeTime = (time: number) => {
     const rtf = new Intl.RelativeTimeFormat('es', { numeric: 'auto' });
-    const daysDifference = Math.round((time - Date.now()) / (1000 * 60 * 60 * 24));
+    const diff = time - Date.now();
+    const minDiff = Math.round(diff / (1000 * 60));
     
-    if (daysDifference === 0) {
-      const hoursDifference = Math.round((time - Date.now()) / (1000 * 60 * 60));
-      if (hoursDifference === 0) {
-        const minDiff = Math.round((time - Date.now()) / (1000 * 60));
-        return rtf.format(minDiff, 'minute');
-      }
-      return rtf.format(hoursDifference, 'hour');
-    }
-    return rtf.format(daysDifference, 'day');
+    if (Math.abs(minDiff) < 60) return rtf.format(minDiff, 'minute');
+    const hoursDiff = Math.round(diff / (1000 * 60 * 60));
+    if (Math.abs(hoursDiff) < 24) return rtf.format(hoursDiff, 'hour');
+    return rtf.format(Math.round(diff / (1000 * 60 * 60 * 24)), 'day');
   };
 
   return (
@@ -101,98 +110,121 @@ export default function MonitoreoSismicoPage() {
       <Navbar />
       <main className={styles.section}>
         <div className={styles.bgGlow}></div>
-        <div className={styles.bgGlow2}></div>
         
         <div className={styles.container}>
-          <motion.div 
-            className={styles.header}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
+          <div className={styles.header}>
             <h1 className={styles.title}>
-              Monitoreo <span className={styles.highlight}>Sísmico</span> Global
+              Centro de <span className={styles.highlight}>Monitoreo Sísmico</span>
             </h1>
             <p className={styles.subtitle}>
-              Rastreador en tiempo real (estilo ShakeViewer) de la actividad sísmica mundial de magnitud significativa (M4.5+), potenciado por la API del Servicio Geológico de los Estados Unidos (USGS).
+              Panel de control táctico. Monitoreo global en tiempo real de eventos sísmicos significativos (M4.5+).
             </p>
-          </motion.div>
+          </div>
 
           {loading ? (
             <div className={styles.loader}>
               <div className={styles.radar}></div>
-              <p>Rastreando ondas sísmicas globales...</p>
+              <p>Sincronizando con red sísmica global...</p>
             </div>
           ) : (
             <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              className={styles.dashboardWrapper}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
             >
-              <EarthquakeMap earthquakes={earthquakes} />
+              {/* KPIs Row */}
+              <div className={styles.kpiRow}>
+                <div className={styles.kpiCard}>
+                  <div className={`${styles.kpiIcon} ${styles.total}`}>
+                    <Activity size={24} />
+                  </div>
+                  <div className={styles.kpiInfo}>
+                    <span className={styles.kpiLabel}>Eventos Activos (7d)</span>
+                    <span className={styles.kpiValue}>{earthquakes.length}</span>
+                  </div>
+                </div>
+                
+                <div className={styles.kpiCard}>
+                  <div className={`${styles.kpiIcon} ${styles.max}`}>
+                    <AlertTriangle size={24} />
+                  </div>
+                  <div className={styles.kpiInfo}>
+                    <span className={styles.kpiLabel}>Magnitud Máxima</span>
+                    <span className={styles.kpiValue}>M {maxMag.toFixed(1)}</span>
+                  </div>
+                </div>
 
-              <div className={styles.grid}>
-                {earthquakes.map((quake, i) => {
-                  const color = getMagnitudeColor(quake.mag);
-                  return (
-                    <motion.div
-                      key={quake.id}
-                      className={styles.card}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.4, delay: Math.min(i * 0.05, 1.5) }}
-                    >
-                      <div className={styles.cardHeader}>
-                        <span className={`${styles.magnitude} ${styles[`severity_${color}`]}`}>
-                          {quake.mag.toFixed(1)}
-                        </span>
-                        {quake.tsunami === 1 && (
-                          <span className={styles.tsunamiBadge}>
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                              <path d="M2 12h4l3-9 5 18 3-9h5"/>
-                            </svg>
-                            Alerta Tsunami
-                          </span>
-                        )}
-                      </div>
-                      
-                      <h2 className={styles.place}>{quake.place}</h2>
-                      
-                      <div className={styles.details}>
-                        <div className={styles.detailItem}>
-                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <polyline points="12 6 12 12 16 14"></polyline>
-                          </svg>
-                          {getRelativeTime(quake.time)}
-                        </div>
-                        <div className={styles.detailItem}>
-                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                            <line x1="12" y1="5" x2="12" y2="19"></line>
-                            <line x1="5" y1="12" x2="19" y2="12"></line>
-                          </svg>
-                          Profundidad: {quake.depth.toFixed(1)} km
-                        </div>
-                      </div>
+                <div className={styles.kpiCard}>
+                  <div className={`${styles.kpiIcon} ${styles.avg}`}>
+                    <Layers size={24} />
+                  </div>
+                  <div className={styles.kpiInfo}>
+                    <span className={styles.kpiLabel}>Prof. Promedio</span>
+                    <span className={styles.kpiValue}>{avgDepth.toFixed(0)} km</span>
+                  </div>
+                </div>
 
-                      <div className={styles.cardFooter}>
-                        <span className={styles.date}>{formatTime(quake.time)}</span>
-                        <a 
-                          href={quake.url} 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          className={styles.link}
-                        >
-                          Ver Detalles
-                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                            <line x1="7" y1="17" x2="17" y2="7"></line>
-                            <polyline points="7 7 17 7 17 17"></polyline>
-                          </svg>
-                        </a>
-                      </div>
-                    </motion.div>
-                  );
-                })}
+                <div className={styles.kpiCard}>
+                  <div className={`${styles.kpiIcon} ${styles.tsunami}`}>
+                    <Radio size={24} />
+                  </div>
+                  <div className={styles.kpiInfo}>
+                    <span className={styles.kpiLabel}>Alertas Tsunami</span>
+                    <span className={styles.kpiValue}>{tsunamiCount}</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Main Dashboard Area */}
+              <div className={styles.mainDashboard}>
+                
+                {/* Sidebar List */}
+                <div className={styles.sidebar}>
+                  <div className={styles.sidebarHeader}>
+                    <span className={styles.sidebarTitle}>Registro de Eventos</span>
+                    <div className={styles.pulseIndicator}>
+                      <div className={styles.pulseDot}></div>
+                      Live
+                    </div>
+                  </div>
+                  
+                  <div className={styles.quakeList}>
+                    {earthquakes.map((quake) => {
+                      const color = getMagnitudeColor(quake.mag);
+                      return (
+                        <div key={quake.id} className={styles.quakeItem}>
+                          {quake.tsunami === 1 && <span className={styles.tsunamiAlert}>Tsunami</span>}
+                          
+                          <div className={styles.quakeItemHeader}>
+                            <span className={`${styles.quakeMagBadge} ${styles[`severity_${color}`]}`}>
+                              {quake.mag.toFixed(1)}
+                            </span>
+                            <span className={styles.quakeTime}>{getRelativeTime(quake.time)}</span>
+                          </div>
+                          
+                          <h3 className={styles.quakePlace}>{quake.place}</h3>
+                          
+                          <div className={styles.quakeMeta}>
+                            <span>Prof: {quake.depth.toFixed(1)} km</span>
+                            <a 
+                              href={quake.url} 
+                              target="_blank" 
+                              rel="noopener noreferrer" 
+                              style={{ color: '#3b82f6', textDecoration: 'none' }}
+                            >
+                              Reporte USGS ↗
+                            </a>
+                          </div>
+                        </div>
+                      )
+                    })}
+                  </div>
+                </div>
+
+                {/* Map Area */}
+                <EarthquakeMap earthquakes={earthquakes} />
+
               </div>
             </motion.div>
           )}

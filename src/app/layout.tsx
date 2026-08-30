@@ -25,7 +25,6 @@ export const metadata: Metadata = {
 import ChatWidget from "@/components/ChatWidget";
 import Script from "next/script";
 
-import CustomCursor from "@/components/CustomCursor";
 import ContextMenu from "@/components/ContextMenu";
 import SplashScreen from "@/components/SplashScreen";
 import ConsoleMessage from "@/components/ConsoleMessage";
@@ -53,9 +52,35 @@ export default function RootLayout({
  |_|  |_|\\__,_|_| |_| |_|___/\\__\\___|_|   |_____/ \\___/|_|  \\__| \\_/\\_/ \\__,_|_|  \\___|
 -->
         `}} />
+        <noscript>
+          <img
+            height="1"
+            width="1"
+            style={{ display: "none" }}
+            src="https://www.facebook.com/tr?id=1767203784453212&ev=PageView&noscript=1"
+            alt=""
+          />
+        </noscript>
+        <Script
+          id="meta-pixel"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1767203784453212');
+fbq('track', 'PageView');
+            `,
+          }}
+        />
         <ConsoleMessage />
         <SplashScreen />
-        <CustomCursor />
         <ContextMenu />
         <div id="google_translate_element"></div>
         <Script

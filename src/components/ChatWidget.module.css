@@ -11,9 +11,11 @@
 .chatWindow {
   width: 340px;
   max-width: calc(100vw - 48px);
-  background: white;
+  background: rgba(10, 28, 50, 0.9);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-radius: 16px;
-  box-shadow: 0 10px 40px rgba(2, 79, 144, 0.15);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
   margin-bottom: 16px;
   overflow: hidden;
   display: flex;
@@ -23,7 +25,7 @@
 }
 
 .header {
-  background: #024F90; /* Brand Blue */
+  background: #25D366; /* WhatsApp Green */
   color: white;
   padding: 16px;
   display: flex;
@@ -98,12 +100,77 @@
 
 .chatBody {
   padding: 20px 16px;
-  background: #f8fafc;
   display: flex;
   flex-direction: column;
   gap: 16px;
-  max-height: 350px;
+  max-height: 450px;
   overflow-y: auto;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.label {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.input, .textarea, .select {
+  width: 100%;
+  padding: 0.75rem;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.5rem;
+  color: white;
+  font-size: 0.875rem;
+  font-family: inherit;
+  transition: border-color 0.2s;
+}
+
+.input:focus, .textarea:focus, .select:focus {
+  outline: none;
+  border-color: #25D366;
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.select option {
+  background: #0a1c32;
+  color: white;
+}
+
+.submitBtn {
+  width: 100%;
+  padding: 0.875rem;
+  background: #25D366;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: background 0.2s;
+}
+
+.submitBtn:hover {
+  background: #1DA851;
 }
 
 .botMessage {
@@ -149,11 +216,11 @@
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background: #024F90; /* Brand Blue */
+  background: #25D366; /* WhatsApp Green */
   color: white;
   border: none;
   cursor: pointer;
-  box-shadow: 0 4px 14px rgba(2, 79, 144, 0.4);
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.4);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -162,7 +229,7 @@
 
 .floatingButton:hover {
   transform: scale(1.05);
-  box-shadow: 0 6px 20px rgba(2, 79, 144, 0.5);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
 }
 
 .floatingButton svg {
@@ -175,4 +242,34 @@
     bottom: 16px;
     right: 16px;
   }
+}
+
+.speedDial {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 16px;
+  align-items: center;
+}
+
+.speedDialButton {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: white;
+  color: #024F90;
+  border: 1px solid rgba(2, 79, 144, 0.15);
+  box-shadow: 0 4px 12px rgba(2, 79, 144, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+}
+
+.speedDialButton:hover {
+  transform: scale(1.1);
+  background: #024F90;
+  color: white;
 }

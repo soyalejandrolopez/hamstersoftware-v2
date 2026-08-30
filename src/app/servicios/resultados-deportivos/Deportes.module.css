@@ -2,8 +2,7 @@
   position: relative;
   min-height: 100vh;
   padding: 100px 20px 40px;
-  background-color: #f8fafc;
-  color: #0f172a;
+  color: var(--color-text);
   overflow: hidden;
 }
 
@@ -60,7 +59,7 @@
 
 .subtitle {
   font-size: 0.95rem;
-  color: #64748b;
+  color: var(--color-text-muted);
   max-width: 700px;
   margin: 0 auto;
   line-height: 1.5;
@@ -120,7 +119,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  color: #0f172a;
+  color: var(--color-text);
 }
 
 .liveIndicator {
@@ -351,7 +350,7 @@
 .stageTitle {
   text-align: center;
   font-size: 0.85rem;
-  color: #64748b;
+  color: var(--color-text-muted);
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -543,7 +542,7 @@
   justify-content: center;
   min-height: 300px;
   gap: 16px;
-  color: #64748b;
+  color: var(--color-text-muted);
 }
 
 .spinner {
